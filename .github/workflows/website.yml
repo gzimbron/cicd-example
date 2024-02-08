@@ -13,17 +13,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   check-workflow-status:
     runs-on: ubuntu-latest
-    steps:
-      - name: Check if last commit was a merge
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const { data: commit } = await github.rest.repos.getCommit({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'HEAD'
-            }); 
-            console.log(commit);
+    steps: 
       - name: Verify Release status
         run: |
           workflow_status=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }} | jq -r .conclusion)

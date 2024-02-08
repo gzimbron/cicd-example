@@ -11,22 +11,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-workflow-status:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check if last commit was a merge
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const { data: commit } = await github.rest.repos.getCommit({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'HEAD'
-            }); 
-            if (commit.commit.message.includes('changeset-release/main') && commit.commiter.email == "noreply@github.com") {
-              console.log('Last commit was a merge from changeset, skipping job');
-              process.exit(78);
-            }
   Quality:
     runs-on: ubuntu-latest
     name: Lint
