@@ -23,7 +23,10 @@ jobs:
               repo: context.repo.repo,
               ref: 'HEAD'
             }); 
-            console.log(commit);
+            if (commit.commit.message.includes('changeset-release/main') && commit.commiter.email == "noreply@github.com") {
+              console.log('Last commit was a merge from changeset, skipping job');
+              process.exit(78);
+            }
   Quality:
     runs-on: ubuntu-latest
     name: Lint

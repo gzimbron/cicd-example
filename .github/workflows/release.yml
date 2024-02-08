@@ -23,7 +23,11 @@ jobs:
               repo: context.repo.repo,
               ref: 'HEAD'
             }); 
-            console.log(commit);
+
+            if (commit.commit.message.includes('changeset-release/main') && commit.commiter.email == "noreply@github.com") {
+              console.log('Last commit was a merge from changeset, skipping job');
+              process.exit(78);
+            }
       - name: Verify CI status
         run: |
           workflow_status=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }} | jq -r .conclusion)
