@@ -1,5 +1,8 @@
 {
 	"name": "@gzim/cicdexample",
+	"publishConfig": {
+		"access": "public"
+	},
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite dev",
