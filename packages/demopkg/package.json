@@ -1,6 +1,9 @@
 {
   "name": "@gzim/demopkg",
   "version": "0.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "svelte-package",
     "prepare": "svelte-kit sync",
