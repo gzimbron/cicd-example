@@ -9,7 +9,7 @@
     "package": "svelte-package && publint",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "test": "vitest",
+    "test:unit": "vitest",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write ."
   },

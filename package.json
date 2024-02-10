@@ -4,6 +4,7 @@
 		"build": "turbo run build",
 		"dev": "turbo run dev",
 		"lint": "turbo run lint",
+		"test:unit": "turbo run test:unit",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
