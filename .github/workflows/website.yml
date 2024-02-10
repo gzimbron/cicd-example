@@ -13,7 +13,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   check-workflow-status:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Verify Release status
         run: |
           workflow_status=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }} | jq -r .conclusion)
