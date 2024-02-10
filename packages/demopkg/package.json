@@ -6,6 +6,7 @@
   },
   "scripts": {
     "dev": "svelte-package",
+    "build": "svelte-package",
     "prepare": "svelte-kit sync",
     "preview": "vite preview",
     "package": "svelte-package && publint",
@@ -31,16 +32,6 @@
     "!dist/**/*.test.*",
     "!dist/**/*.spec.*"
   ],
-  "typesVersions": {
-    ">4.0": {
-      "index.d.ts": [
-        "./index.d.ts"
-      ],
-      "types": [
-        "./types.d.ts"
-      ]
-    }
-  },
   "peerDependencies": {
     "svelte": "^4.0.0"
   },
