@@ -43,6 +43,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      #print steps.changesets.outputs
+      - name: Print Changesets Outputs
+        run: echo "${{ toJson(steps.changesets.outputs) }}"
+
       - name: Build
         if: steps.changesets.outputs.hasChangesets == 'true'
         env:
