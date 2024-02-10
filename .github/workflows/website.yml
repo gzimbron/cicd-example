@@ -15,9 +15,7 @@ jobs:
   print-event:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "github.event.workflow_run.event ${{ toJson(github.event.workflow_run.event) }}"
-      - run: echo "github.event.workflow_run.head_commit.message ${{ toJson(github.event.workflow_run.head_commit.message) }}"
-      - run: echo "github.ref ${{ toJson(github.ref) }}"
+      - run: echo "github.event.workflow_run.head_commit.message ${{ toJson(github.event.workflow_run) }}"
   check-workflow-status:
     if: ${{ (github.event.workflow_run.event == 'push' && (github.ref == 'refs/heads/main' || contains(github.event.workflow_run.head_commit.message, 'changeset-release/main'))) }}
     runs-on: ubuntu-latest
