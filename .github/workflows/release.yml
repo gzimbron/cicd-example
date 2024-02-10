@@ -58,7 +58,7 @@ jobs:
   deploy:
     if: ${{ needs.release.outputs.hasChangesets == 'true' }}
     name: Deploy
-    needs: build_site
+    needs: release
     runs-on: ubuntu-latest
 
     permissions:
