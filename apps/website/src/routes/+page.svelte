@@ -11,9 +11,9 @@
 	<MensajeCool>
 		<Saludo nombre={persona.nombre}></Saludo>
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ab corrupti quisquam quos
-			aspernatur, ea necessitatibus voluptatum excepturi error. Labore, exercitationem. Optio
-			placeat repudiandae quaerat deleniti. Voluptas earum unde nisi!.
+			Esta es una página de ejemplo. Puedes editarla en <code
+				>apps/website/src/routes/%2Bpage.svelte</code
+			>.
 		</p>
 	</MensajeCool>
 </section>
