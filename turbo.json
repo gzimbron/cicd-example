@@ -7,6 +7,9 @@
 		},
 		"lint": {},
 		"test:unit": {},
+		"package": {
+			"dependsOn": ["^build"]
+		},
 		"dev": {
 			"cache": false,
 			"persistent": true
