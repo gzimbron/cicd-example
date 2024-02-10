@@ -2,7 +2,7 @@ name: Release
 
 on:
   workflow_run:
-    workflows: ["CI"]
+    workflows: ['CI']
     types:
       - completed
     branches:
@@ -13,7 +13,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   check-workflow-status:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Verify CI status
         run: |
           workflow_status=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }} | jq -r .conclusion)
@@ -39,7 +39,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: '18.x'
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
