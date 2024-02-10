@@ -1,5 +1,11 @@
 # @gzim/demopkg
 
+## 0.1.1
+
+### Patch Changes
+
+- df40392: eeeeeee
+
 ## 0.1.0
 
 ### Minor Changes
