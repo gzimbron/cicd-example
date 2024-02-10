@@ -1,5 +1,11 @@
 # website
 
+## 0.0.10
+
+### Patch Changes
+
+- 06f759e: Hola
+
 ## 0.0.9
 
 ### Patch Changes
