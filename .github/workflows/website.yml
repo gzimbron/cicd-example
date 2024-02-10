@@ -18,7 +18,7 @@ jobs:
       - name: Print Event
         run: echo "${{ toJson(github) }}"
   check-workflow-status:
-    if: ${{ (github.event_name == 'push' && github.event.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'changeset-release/main') }}
+    if: ${{ (github.event.workflow_run.event == 'push' && (github.ref == 'main' || github.event.workflow_run.head_commit.message == 'changeset-release/main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Verify Release status
