@@ -27,41 +27,11 @@ jobs:
       pages: write
     name: Build
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Check if changeset includes a release for website
-        id: check_release
-        run: |
-          CHANGESET=$(git diff --name-only HEAD~1 HEAD)
-          if echo "$CHANGESET" | grep -q "^apps/website/"; then
-            echo "::set-output name=release::true"
-          else
-            echo "::set-output name=release::false"
-          fi
-
-      - name: Check if PR comes from changeset and includes 'changeset-release/main'
-        id: check_changeset
-        run: |
-          PR_TITLE=$(gh pr view https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }} --json title -q ".title")
-          if [[ "$PR_TITLE" == *"changeset-release/main"* ]]; then
-            echo "::set-output name=changeset::true"
-          else
-            echo "::set-output name=changeset::false"
-          fi
-
-      - name: Stop job if no release or not a changeset
-        run: |
-          if [[ "${{ steps.check_release.outputs.release }}" != 'true' || "${{ steps.check_changeset.outputs.changeset }}" != 'true' ]]; then
-            echo "No release for website or not a changeset, stopping job."
-            echo "::stop-commands::"
-          fi
-
       - uses: pnpm/action-setup@v2.2.4
         with:
           version: 8.6.3
