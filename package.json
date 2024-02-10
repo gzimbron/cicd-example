@@ -6,7 +6,8 @@
 		"lint": "turbo run lint",
 		"test:unit": "turbo run test:unit",
 		"format": "prettier --write .",
-		"package": "turbo run package"
+		"package": "turbo run package",
+		"release": "turbo run release"
 	},
 	"devDependencies": {
 		"@repo/eslint-config": "workspace:*",
