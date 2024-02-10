@@ -1,5 +1,11 @@
 # website
 
+## 0.0.7
+
+### Patch Changes
+
+- d5886d3: Se cambia txt
+
 ## 0.0.6
 
 ### Patch Changes
