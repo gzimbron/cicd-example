@@ -15,6 +15,12 @@
 				apps/website/src/routes/%2Bpage.svelte
 			</code>.
 		</p>
+
+		<p>
+			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint hic veritatis ullam ab, impedit
+			vero suscipit, dicta reprehenderit eaque non quae accusamus, ut omnis quos explicabo est modi
+			fugiat quidem!
+		</p>
 	</MensajeCool>
 </section>
 
