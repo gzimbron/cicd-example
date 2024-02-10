@@ -1,5 +1,11 @@
 # website
 
+## 0.0.6
+
+### Patch Changes
+
+- ec0eab0: despliega
+
 ## 0.0.5
 
 ### Patch Changes
