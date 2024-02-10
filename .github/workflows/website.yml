@@ -11,13 +11,7 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  #print the event payload to the log
-  print-event:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "github.event.workflow_run.head_commit.message ${{ toJson(github.event.workflow_run) }}"
   check-workflow-status:
-    if: ${{ (github.event.workflow_run.event == 'push' && (github.ref == 'refs/heads/main' || contains(github.event.workflow_run.head_commit.message, 'changeset-release/main'))) }}
     runs-on: ubuntu-latest
     steps:
       - name: Verify Release status
@@ -27,7 +21,17 @@ jobs:
             echo "Release failed, not deploying"
             exit 1
           fi
+      - name: Check if website workspace has a release
+        id: check_release
+        run: |
+          MODIFIED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          if echo "$MODIFIED_FILES" | grep -q "^website/"; then
+            echo "::set-output name=release::true"
+          else
+            echo "::set-output name=release::false"
+          fi
   build_site:
+    if: steps.check_release.outputs.release == 'true'
     needs: check-workflow-status
     permissions:
       pages: write
