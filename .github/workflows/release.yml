@@ -43,24 +43,25 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      #print steps.changesets.outputs
       - name: Print Changesets Outputs
         run: echo "${{ toJson(steps.changesets.outputs) }}"
 
+      - run: echo "::set-output name=published::${{steps.changesets.outputs.published}}"
+
       - name: Build
-        if: steps.changesets.outputs.hasChangesets == 'true'
+        if: steps.changesets.outputs.published == 'true'
         env:
           BASE_PATH: "/${{ github.event.repository.name }}"
         run: pnpm build
 
       - name: Upload Artifacts
-        if: steps.changesets.outputs.hasChangesets == 'true'
+        if: steps.changesets.outputs.published == 'true'
         uses: actions/upload-pages-artifact@v2
         with:
           path: "apps/website/build/"
 
   deploy:
-    if: ${{ needs.release.outputs.hasChangesets == 'true' }}
+    if: ${{ needs.release.outputs.published == 'true' }}
     name: Deploy
     needs: release
     runs-on: ubuntu-latest
