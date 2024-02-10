@@ -1,5 +1,13 @@
 # website
 
+## 0.0.3
+
+### Patch Changes
+
+- 7131247: Implementing MensajeCool
+- Updated dependencies [7131247]
+  - @gzim/demopkg@0.1.0
+
 ## 0.0.2
 
 ### Patch Changes
