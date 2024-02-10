@@ -1,7 +1,7 @@
 {
   "name": "@gzim/demopkg",
   "description": "A Svelte package demo ci/cd",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public"
   },
