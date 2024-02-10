@@ -19,7 +19,7 @@ jobs:
       - run: echo "github.event.workflow_run.head_commit.message ${{ toJson(github.event.workflow_run.head_commit.message) }}"
       - run: echo "github.ref ${{ toJson(github.ref) }}"
   check-workflow-status:
-    if: ${{ (github.event.workflow_run.event == 'push' && (github.ref == 'main' || contains(github.event.workflow_run.head_commit.message, 'changeset-release/main'))) }}
+    if: ${{ (github.event.workflow_run.event == 'push' && (github.ref == 'refs/heads/main' || contains(github.event.workflow_run.head_commit.message, 'changeset-release/main'))) }}
     runs-on: ubuntu-latest
     steps:
       - name: Verify Release status
