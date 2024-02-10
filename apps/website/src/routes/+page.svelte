@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Saludo } from '@gzim/demopkg';
+	import { Saludo, MensajeCool } from '@gzim/demopkg';
 
 	const persona = {
 		nombre: 'Gus',
@@ -7,11 +7,21 @@
 	};
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>
-	{JSON.stringify(persona)}
-</p>
+<section>
+	<MensajeCool>
+		<Saludo nombre={persona.nombre}></Saludo>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ab corrupti quisquam quos
+			aspernatur, ea necessitatibus voluptatum excepturi error. Labore, exercitationem. Optio
+			placeat repudiandae quaerat deleniti. Voluptas earum unde nisi!
+		</p>
+	</MensajeCool>
+</section>
 
-<Saludo nombre={persona.nombre}></Saludo>
-<!-- <Saludo nombre="{persona.nombre} {persona.apellido}"></Saludo>
- -->
+<style>
+	section {
+		position: relative;
+		max-width: 600px;
+		margin: auto;
+	}
+</style>

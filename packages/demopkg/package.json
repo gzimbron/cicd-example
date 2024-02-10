@@ -5,7 +5,7 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "svelte-package",
+    "dev": "svelte-package -w",
     "build": "svelte-package",
     "prepare": "svelte-kit sync",
     "preview": "vite preview",
