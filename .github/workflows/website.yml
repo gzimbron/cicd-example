@@ -14,7 +14,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   check-workflow-status:
-    if: ${{ !(github.event_name == 'push' && github.event.ref == 'refs/heads/main' && contains(github.event.head_commit.message, 'changeset-release')) }}
+    if: ${{ (github.event_name == 'push' && github.event.ref == 'refs/heads/main' && contains(github.event.head_commit.message, 'changeset-release')) }}
     runs-on: ubuntu-latest
     steps:
       - name: Verify Release status
