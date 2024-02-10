@@ -11,6 +11,12 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+  #print the event payload to the log
+  print-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Event
+        run: echo "${{ toJson(github) }}"
   check-workflow-status:
     if: ${{ (github.event_name == 'push' && github.event.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'changeset-release/main') }}
     runs-on: ubuntu-latest
