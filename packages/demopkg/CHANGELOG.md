@@ -1,5 +1,11 @@
 # @gzim/demopkg
 
+## 0.1.2
+
+### Patch Changes
+
+- 107e330: ekfkfkf fix #1
+
 ## 0.1.1
 
 ### Patch Changes
