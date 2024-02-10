@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Saludo } from '@gzim/cicdexample';
-	import { type Persona } from '@gzim/cicdexample/tipos';
-	const persona: Persona = {
+	import { Saludo } from '@gzim/demopkg';
+
+	const persona = {
 		nombre: 'Gus',
 		apellido: 'Zim'
 	};
@@ -12,4 +12,6 @@
 	{JSON.stringify(persona)}
 </p>
 
-<Saludo nombre="{persona.nombre} {persona.apellido}"></Saludo>
+<Saludo nombre={persona.nombre}></Saludo>
+<!-- <Saludo nombre="{persona.nombre} {persona.apellido}"></Saludo>
+ -->
