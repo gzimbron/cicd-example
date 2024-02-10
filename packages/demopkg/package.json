@@ -13,8 +13,7 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
     "lint": "prettier --check . && eslint .",
-    "format": "prettier --write .",
-    "release": "changeset publish"
+    "format": "prettier --write ."
   },
   "exports": {
     ".": {

@@ -11,9 +11,6 @@
 		"package": {
 			"dependsOn": ["^build"]
 		},
-		"release": {
-			"dependsOn": ["^package"]
-		},
 		"dev": {
 			"cache": false,
 			"persistent": true

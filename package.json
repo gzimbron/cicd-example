@@ -7,7 +7,7 @@
 		"test:unit": "turbo run test:unit",
 		"format": "prettier --write .",
 		"package": "turbo run package",
-		"release": "turbo run release"
+		"release": "changeset publish"
 	},
 	"devDependencies": {
 		"@repo/eslint-config": "workspace:*",
