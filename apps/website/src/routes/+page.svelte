@@ -11,9 +11,8 @@
 	<MensajeCool>
 		<Saludo nombre={persona.nombre}></Saludo>
 		<p>
-			Esta es una página de ejemplo. Puedes editarla en: <code>
-				apps/website/src/routes/%2Bpage.svelte
-			</code>.
+			Esta es una página de ejemplo. <b>Pyedes</b> editarla en:
+			<code> apps/website/src/routes/%2Bpage.svelte </code>.
 		</p>
 
 		<p>
